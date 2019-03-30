@@ -17,7 +17,7 @@ body {
 
 #web_bg {
     /* margin: -100px; */
-    position: fixed;
+    position: fixed; /*保持不动*/
     top: 0px;
     left: 0px;
     width:100%;
@@ -38,6 +38,7 @@ body {
     background-attachment: fixed;
 }
 
+/* 使背景图高斯模糊的白边不被看到 */
 #bg {
     position: fixed;
     top: 0px;
@@ -59,22 +60,44 @@ body {
 }
 
 #grid {
-    margin-top: 30px;
+    margin: 30px;
     width: 100%;
     display: grid;
-    grid-gap: 30px;
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(auto-fit, 200px);
+    /* grid-template-columns: repeat(5, 1fr); */
+
 }
 
 .box {
-  border: 6px solid #fff;
-  color: #fff;
-  border-radius: 2px;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 4em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    /* border: 6px solid #fff; */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    border-radius: 2px;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;/* 水平居中 */
+    align-items: center;
+}
+
+.box_img {
+    width: 200px;
+    height: 296px;
+    /* border: 6px solid #fff; */
+    color: #fff;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_title {
+    margin: 10px;
+    font-size: 17px;
+    color: #fff;
+    
 }
