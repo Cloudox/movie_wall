@@ -21,3 +21,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# http://203.195.170.137:18888/static/index.html
+# http://localhost:18888/static/detail.html
+# Ctrl + F5 强制刷新CSS和JS

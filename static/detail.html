@@ -37,23 +37,28 @@
 </div>
 
 <script>
-    // document.getElementById("content_title_id").innerHTML="New text!";
+    loadXML();
+    document.getElementById("content_title_id").innerHTML="Aew text!";
     //获取XMLRequest对象
-    if(window.XMLHttpRequest){
-        xmlhttp=new XMLHttpRequest();
-    }
+    // if(window.XMLHttpRequest){
+    //     xmlhttp=new XMLHttpRequest();
+    // }
     //否则获取微软IEActiveX
-    else{
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    //代开相关xml文件
-    xmlhttp.open("GET","/static/Live/Live.xml",false);
+    // else{
+    //     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    // }
+    xmlhttp=new XMLHttpRequest();
+    //打开相关xml文件
+    xmlhttp.open("GET","localhost:18888/static/Live/Live.xml",false);
+    // xmlhttp.setRequestHeader('Content-Type', 'text/xml')
+    // xmlhttp.send()
     //从xml文档流获取根元素
     root=xmlhttp.responseXML;
+    // alert(root)
     //定义显示xml详细内容的js函数
     // function displayCDContent() {
         //这里是针对“一条”
-    title=(root[0].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+    title=root.getElementsByTagName("title")[0].childNodes[0].nodeValue;
         // title=(root[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
         // year=(root[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue);
         // txt="ARTIST:"+artist+"<br>"+"TITLE"+title+"<br>"+"YEAR"+year;
@@ -61,17 +66,22 @@
     // document.getElementById("content_title_id").innerHTML="hahaha";
 
     // }
-    // $.ajax({  
-    //     url: '../Live/Live.xml',
-    //     type: 'GET',
-    //     dataType: 'xml',
-    //     success: function(xml) {
-    //         var title = $(xml).find('title').text();
-    //         $('content_title_id').text(title);
-    //         document.getElementById("content_title_id").innerHTML=title;
-    //     }
+    function loadXML() {
+        $.ajax({  
+            url: '/static/Live/Live.xml',
+            type: 'GET',
+            dataType: 'xml',
+            success: function(data, textStatus, jqXHR) {
+                alert(data)
+                var title = $(xml).find('title').text();
+                $('content_title_id').text(title);
+                document.getElementById("content_title_id").innerHTML=title;
+            },error: function(jqXHR, textStatus, errorThrown) {//读取失败时
+                alert("error")
+            }
 
-    // });
+        });
+    }
 </script>
 </body>
 </html>
