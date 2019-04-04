@@ -34,7 +34,7 @@ body {
     /* opacity:0.5; */
     filter: blur(5px);
     overflow: hidden;
-    background-image: url(./img/index_bg.jpg);
+    background-image: url(/static/img/detail_bg.jpg);
     background-attachment: fixed;
 }
 
@@ -46,7 +46,7 @@ body {
     z-index:-11;
     width: 100%;
     height: 100%;
-    background-image: url(./img/index_bg.jpg);
+    background-image: url(/static/img/detail_bg.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -59,45 +59,49 @@ body {
     color: #fff;
 }
 
-#grid {
-    margin: 30px;
-    width: 100%;
-    display: grid;
+#content {
+    width: auto;
+    margin:50px;
+    display: flex;
+    flex-direction: row;
+    /* display: grid;
     grid-gap: 50px;
-    grid-template-rows: repeat(auto-fit, 1fr);
-    grid-template-columns: repeat(auto-fit, 200px);
-    /* grid-template-columns: repeat(5, 1fr); */
-
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 1fr; */
+    /* grid-template-rows: repeat(auto-fit, 1fr); */
+    /* grid-template-columns: repeat(auto-fit, 200px); */
+    
 }
 
-.box {
-    /* border: 6px solid #fff; */
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    border-radius: 2px;
-    font-family: Helvetica;
-    font-weight: bold;
-    font-size: 4em;
-    display: flex;
-    justify-content: center;/* 水平居中 */
-    align-items: center;
-}
-
-.box_img {
-    width: 200px;
-    height: 296px;
+.content_img {
+    width: 300px;
+    height: 444px;
+    float: left;
     /* border: 6px solid #fff; */
     color: #fff;
-    border-radius: 3px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.box_title {
-    margin: 10px;
-    font-size: 17px;
+#text_content {
+    margin-left: 50px;
+    /* width: auto; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content_title {
+    font-size: 35px;
     color: #fff;
-    
+    word-break:keep-all;
+    word-wrap:break-word;
+}
+
+.content_detail {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #fff;
 }

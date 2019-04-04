@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="./detail.css">
+    <!-- <script type="text/javascript" src="./detail.js"></script> -->
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <title>Movie Detail</title>
+</head>
+
+
+
+<!-- <body id="web_bg" style="background-image: url(./img/index_bg.jpg);"> -->
+<body>  
+<!--背景图片-->
+<div id="bg"><div id="web_bg" ></div></div>
+
+<div id="main">
+    
+    <p id="title_p">Movie Detail</p>
+    <HR style="margin-top: 0; margin-right:50px; FILTER: alpha(opacity=100,finishopacity=0,style=1);" width="95%" align=left >
+    <!-- <div id="web_bg" style="background-image: url(./img/index_bg.jpg); width: 100%; height: 100vh; background-size: 100% 100%;">有没有</div> -->
+    <!-- 其他代码 ... -->
+    <div id="content">
+        <div><img class="content_img" src="/static/img/p2515089349.webp"></div>
+        
+        <div id="text_content">
+            <label id="content_title_id" class="content_title"></label>
+            <HR style="margin-top: 10; FILTER: alpha(opacity=100,finishopacity=0,style=1);" width="100%" align=left >
+            <label class="content_detail">Actor：李光洙</label>
+            <label class="content_detail">出品时间：2018-03-10(韩国)</label>
+            <label class="content_detail">简介：此剧以警察局里发生的事件为中心，讲述努力维护日常重要价值及正义的警察之喜怒哀乐的故事。</label>
+        </div>
+    </div>
+</div>
+
+<script>
+    // document.getElementById("content_title_id").innerHTML="New text!";
+    //获取XMLRequest对象
+    if(window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }
+    //否则获取微软IEActiveX
+    else{
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    //代开相关xml文件
+    xmlhttp.open("GET","/static/Live/Live.xml",false);
+    //从xml文档流获取根元素
+    root=xmlhttp.responseXML;
+    //定义显示xml详细内容的js函数
+    // function displayCDContent() {
+        //这里是针对“一条”
+    title=(root[0].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+        // title=(root[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
+        // year=(root[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue);
+        // txt="ARTIST:"+artist+"<br>"+"TITLE"+title+"<br>"+"YEAR"+year;
+    document.getElementById("content_title_id").innerHTML=title;
+    // document.getElementById("content_title_id").innerHTML="hahaha";
+
+    // }
+    // $.ajax({  
+    //     url: '../Live/Live.xml',
+    //     type: 'GET',
+    //     dataType: 'xml',
+    //     success: function(xml) {
+    //         var title = $(xml).find('title').text();
+    //         $('content_title_id').text(title);
+    //         document.getElementById("content_title_id").innerHTML=title;
+    //     }
+
+    // });
+</script>
+</body>
+</html>
