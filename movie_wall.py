@@ -3,22 +3,27 @@ import os
 import time
 import logging
 import json
-from flask import Flask
+from flask import Flask, redirect, url_for, send_from_directory
 from flask import request, jsonify
 from flask import Response
 
 app = Flask(__name__)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route('/')
 def index():
-    return app.send_static_file('/staic/menu.html')
+    return redirect('/static/menu.html')
 
 @app.route("/get_disk_dirs", methods=['GET'])
 def get_disk_dirs_get():
     print("get_disk_dirs_get")
     disk = request.args.get('disk')
     dirs = ""
-    root = os.getcwd() + "\static\menu" + "\\" + disk
+    root = os.getcwd() + "/static/menu/" + disk
     files = os.listdir(root)
     for file in files:
         # print(file)
@@ -28,7 +33,7 @@ def get_disk_dirs_get():
                 dirs = dirs + file
             else:
                 dirs = dirs + ";" + file
-    return str(dirs)
+    return dirs
 
 @app.route("/find_dirs", methods=['GET'])
 def find_dirs_get():
@@ -36,7 +41,7 @@ def find_dirs_get():
     menu = request.args.get('menu')
     dirs = ""
     print("find_dirs_get")
-    root = os.getcwd() + "\static\movies\\"+disk+"\\"+menu
+    root = os.getcwd() + "/static/movies/"+disk+"/"+menu
     files = os.listdir(root)
     for file in files:
         # print(file)
@@ -47,7 +52,7 @@ def find_dirs_get():
                 dirs = dirs + file
             else:
                 dirs = dirs + ";" + file
-    return str(dirs)
+    return dirs
 
 
 def main():
@@ -68,4 +73,6 @@ if __name__ == '__main__':
 # http://203.195.170.137:18888/static/menu.html
 # http://localhost:18888/static/menu.html
 # Ctrl + F5 强制刷新CSS和JS
-# 本地：python E:\Github\movie_wall\main.py
+# 本地：E:
+# cd Github\movie_wall
+# python main.py

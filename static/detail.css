@@ -87,6 +87,7 @@ body {
 
 #text_content {
     margin-left: 50px;
+    margin-right: 50px;
     /* width: auto; */
     flex: 1;
     display: flex;

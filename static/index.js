@@ -63,7 +63,7 @@ function loadXML(disk, menu) {
         type : 'GET',  
         //data : JSON.stringify(request),  
         //dataType : 'json',  
-        //contentType : 'application/json;charset=UTF-8',  
+        contentType : 'application/json;charset=UTF-8',  
         success : function(reply_data, status, xhr) {  
             // alert(reply_data);
             // img_name = reply_data.split(",")[0];

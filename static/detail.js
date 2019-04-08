@@ -49,7 +49,7 @@ function loadXML(disk, menu, movie) {
             var plot = '情节: ' + $(data).find('plot').text();
             document.getElementById("content_plot_id").innerHTML=plot;
 
-            var location = '视频位置: '+disk+' -> '+menu+' -> '+$(data).find('num').text();
+            var location = '视频位置: '+decodeURIComponent(disk)+' -> '+decodeURIComponent(menu)+' -> '+$(data).find('num').text();
             document.getElementById("content_location_id").innerHTML=location;
             
             document.getElementById("content_cover_id").href='/static/movies/'+disk+'/'+menu+'/'+movie+'/'+movie+'.jpg';
