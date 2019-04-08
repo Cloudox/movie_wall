@@ -1,3 +1,11 @@
 *.zip
 
 __pycache__/
+
+static/menu/Adata
+static/menu/Toshiba
+
+static/movies/Adata
+static/movies/Toshiba
+static/movies/Live
+static/movies/风味人间
