@@ -2,7 +2,7 @@ var disk = "Adata"
 adata_btn_click()
 
 function make_div(reply_data) {
-    console.log(reply_data)
+    // console.log(reply_data)
     grid_div = document.getElementById("grid");
     grid_div.innerHTML = "";
     menus =  reply_data.split(";");

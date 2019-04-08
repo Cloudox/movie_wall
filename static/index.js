@@ -13,13 +13,13 @@ for (var i=0;i<vars.length;i++) {
 loadXML(disk, menu);
 
 function make_div(reply_data) {
-    console.log(reply_data)
+    // console.log(reply_data)
     grid_div = document.getElementById("grid");
     movies =  reply_data.split(";");
 
     for (var i = 0; i < movies.length; i++) {
         movie = movies[i];
-        console.log(movie)
+        // console.log(movie)
         alink = document.createElement("a");
         alink.style.cssText +="text-decoration: none;";
         alink.href = "./detail.html?disk="+disk+"&menu="+menu+"&movie=" + movie;
