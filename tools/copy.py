@@ -14,7 +14,7 @@ def mkdir(path):
 		os.makedirs(path)            #makedirs 创建文件时如果路径不存在会创建这个路径
 
 # 遍历路径内的文件
-main_name = '椎名'
+main_name = ''
 init_dir = 'G:\\SOFTWARE\\飞速土豆\\飞速Tudou\\update\\播放器\\新建文件夹\\' + main_name
 target_dir = 'D:\\Software\\Everaver\\Toshiba\\'+main_name+'\\' # 需要先创建该目录
 # 处理找到信息的视频
@@ -60,6 +60,6 @@ for file in os.listdir(init_dir):
     #             sys.stdout.flush()
 
 
-# python E:\Github\movie_wall\copy.py
+# python E:\Github\movie_wall\tools\copy.py
 
 #【中字】
