@@ -2,7 +2,7 @@ import os, sys
 
 
 # 检查文件名如果空格结尾，则去除
-def check_blank(init_dir):
+def check_last_blank(init_dir):
     for file in os.listdir(init_dir): 
         file_path = os.path.join(init_dir, file)
         if os.path.isdir(file_path):
@@ -19,6 +19,16 @@ def check_blank(init_dir):
                             print(new_path)
                             os.rename(old_path, new_path)
 
-check_blank("E:\\Github\\movie_wall\\static\\movies\\Toshiba")
+# 检查有哪些电影文件夹内是无信息的
+def check_no_info(init_dir):
+    for file in os.listdir(init_dir): 
+        file_path = os.path.join(init_dir, file)
+        if os.path.isdir(file_path):
+            for sub_file in os.listdir(file_path): 
+                if (sub_file[0] != '['):
+                    print(sub_file)
+
+# check_last_blank("E:\\Github\\movie_wall\\static\\movies\\Toshiba")
+check_no_info("E:\\Github\\movie_wall\\static\\movies\\Adata")
 
 # python E:\Github\movie_wall\tools\check.py

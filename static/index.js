@@ -20,21 +20,37 @@ function make_div(reply_data) {
     for (var i = 0; i < movies.length; i++) {
         movie = movies[i];
         // console.log(movie)
-        alink = document.createElement("a");
-        alink.style.cssText +="text-decoration: none;";
-        alink.href = "./detail.html?disk="+disk+"&menu="+menu+"&movie=" + movie;
-        grid_div.appendChild(alink);
-        div = document.createElement("div");
-        div.className = "box";
-        alink.appendChild(div);
-        img = document.createElement("img");
-        img.className = "box_img";
-        img.src = '/static/movies/'+disk+'/'+menu+'/'+movie+'/'+movie+'.png';
-        div.appendChild(img);
-        label = document.createElement("label");
-        label.className = "box_title";
-        label.innerHTML = movie;
-        div.appendChild(label);
+        if (movie.charAt(0) == '[') {
+            alink = document.createElement("a");
+            alink.style.cssText +="text-decoration: none;";
+            alink.href = "./detail.html?disk="+disk+"&menu="+menu+"&movie=" + movie;
+            grid_div.appendChild(alink);
+            div = document.createElement("div");
+            div.className = "box";
+            alink.appendChild(div);
+            img = document.createElement("img");
+            img.className = "box_img";
+            img.src = '/static/movies/'+disk+'/'+menu+'/'+movie+'/'+movie+'.png';
+            div.appendChild(img);
+            label = document.createElement("label");
+            label.className = "box_title";
+            label.innerHTML = movie;
+            div.appendChild(label);
+        } else {// 无信息和图片
+            div = document.createElement("div");
+            div.className = "box";
+            grid_div.appendChild(div);
+            img = document.createElement("img");
+            img.className = "box_img";
+            img_num = Math.floor(Math.random()*10); // 0~9的随机整数
+            img.src = '/static/img/for_no_info/'+img_num.toString()+'.jpg';
+            div.appendChild(img);
+            label = document.createElement("label");
+            label.className = "box_title";
+            label.innerHTML = movie;
+            div.appendChild(label);
+        }
+        
     }
 };
 
